@@ -1,62 +1,78 @@
-# Agentic AI — DeepLearning.AI
+# 🤖 Agentic AI — DeepLearning.AI Study Hub & Applied Workflows
 
-[![Coursera Certificate](https://img.shields.io/badge/Coursera-Verified_Certificate-0056D2?style=for-the-badge&logo=coursera)](https://www.coursera.org/account/accomplishments/verify/TF20P782D3SY)
-[![Grade](https://img.shields.io/badge/Grade-100.00%25-brightgreen?style=for-the-badge)](https://www.coursera.org/account/accomplishments/verify/TF20P782D3SY)
 [![Python](https://img.shields.io/badge/Python-3.11+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
-[![OpenAI](https://img.shields.io/badge/OpenAI-Tool_Calling-412991?style=for-the-badge&logo=openai&logoColor=white)](https://openai.com/)
+[![DeepLearning.AI](https://img.shields.io/badge/DeepLearning.AI-Agentic_AI-FF6F00?style=for-the-badge)](https://www.deeplearning.ai/)
+[![OpenAI](https://img.shields.io/badge/OpenAI-Function_Calling-412991?style=for-the-badge&logo=openai&logoColor=white)](https://openai.com/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
-Official coursework, implemented reflective agent pipelines, tool-calling systems, multi-agent workflows, and verified certificate for **Agentic AI** offered by **DeepLearning.AI** on Coursera.
-
----
-
-## 🎓 Credential Verification
-
-- **Learner:** Ahmed Mohamed Abdullatif Rifai
-- **Issuer:** DeepLearning.AI & Coursera
-- **Certificate ID:** `TF20P782D3SY`
-- **Verification URL:** [coursera.org/verify/TF20P782D3SY](https://www.coursera.org/account/accomplishments/verify/TF20P782D3SY)
-- **Completion Date:** October 17, 2026
-- **Final Grade:** **100.00%** (All graded programming assignments scored 100/100)
-
-![Agentic AI Certificate](DeepLearning_AI_Agentic_AI_Certificate_TF20P782D3SY.png)
+> **Learner:** Ahmed Rifai  
+> **Course:** DeepLearning.AI — Agentic AI  
+> **Repository Purpose:** Comprehensive study repository, laboratory notebooks, modular agent architectures, and technical notes documenting my deep-dive into autonomous AI agent design patterns.
 
 ---
 
-## 📂 Repository Contents
+## 📖 Overview & Study Focus
 
-| Notebook / File | Module | Grade | Description |
-| :--- | :--- | :---: | :--- |
-| [`C1M2_Assignment.ipynb`](./C1M2_Assignment.ipynb) | Module 2 | **100/100** | **Reflection in a Research Agent:** Implemented a three-step reflective workflow (`generate_draft`, `reflect_on_draft`, `revise_draft`) using LLM self-critique. |
-| [`C1M3_Assignment.ipynb`](./C1M3_Assignment.ipynb) | Module 3 | **100/100** | **Tool Use and Reflective Agents:** Integrated arXiv and Tavily web search tools with OpenAI function calling, structured JSON critique, and automated HTML publishing. |
-| [`C1M5_Assignment.ipynb`](./C1M5_Assignment.ipynb) | Module 5 | **100/100** | **Agentic Workflows:** Orchestrated a complete autonomous multi-agent pipeline (`planner_agent`, `research_agent`, `writer_agent`, `editor_agent`) to conduct research and generate polished Markdown reports. |
-| [`DeepLearning_AI_Agentic_AI_Certificate_TF20P782D3SY.pdf`](./DeepLearning_AI_Agentic_AI_Certificate_TF20P782D3SY.pdf) | Credential | **100%** | Official vector Coursera credential PDF. |
+This repository tracks my hands-on coursework, architectural patterns, and code implementations throughout **DeepLearning.AI's Agentic AI** curriculum. The curriculum focuses on shifting from stateless, single-turn LLM prompting to autonomous, multi-agent feedback loops that can plan, query external tools, critique their own outputs, and collaborate to solve complex research goals.
+
+### 🌟 Key Design Patterns Studied & Implemented
+1. **Reflection & Self-Critique:** Evaluator-optimizer loops where models critique drafts across defined rubrics (Strengths, Limitations, Suggestions, Opportunities) to produce higher-quality revisions.
+2. **Dynamic Tool Calling:** Integration of external tools (`arXiv`, `Tavily Web Search`, `Wikipedia`) using structured JSON function schemas and automatic model selection (`tool_choice="auto"`).
+3. **Structured Planning:** Task decomposition translating ill-defined user objectives into atomic, executable step-by-step dependency plans.
+4. **Multi-Agent Orchestration:** Specialized agents (`PlannerAgent`, `ResearchAgent`, `WriterAgent`, `EditorAgent`) coordinating in linear and hierarchical pipelines.
 
 ---
 
-## 🏗️ Architecture & Agentic Design Patterns
+## 🏗️ Multi-Agent Architecture
 
 ```mermaid
 flowchart TD
-    subgraph MultiAgentSystem ["Multi-Agent Architecture (Module 5)"]
-        User["User Prompt / Topic"] --> Planner["Planner Agent (o4-mini)"]
-        Planner -->|"Decomposed Step-by-Step Plan"| Orchestrator["Workflow Coordinator"]
+    subgraph MultiAgentSystem ["Multi-Agent Orchestration Pipeline"]
+        User["User Research Topic"] --> Planner["Planner Agent (o4-mini)"]
+        Planner -->|"Atomic Sequential Steps"| Coordinator["Pipeline Coordinator"]
         
-        subgraph ResearchExecution ["Research Phase"]
-            Orchestrator --> Research["Research Agent (gpt-4o)"]
-            Research <-->|"Tool Calling (arXiv / Tavily / Wikipedia)"| Tools["External Research Tools"]
+        subgraph ResearchExecution ["Research Phase (gpt-4o)"]
+            Coordinator --> Research["Research Agent"]
+            Research <-->|"Tool Calling (arXiv / Tavily / Wikipedia)"| Tools["External APIs & Tool Execution"]
         end
         
-        Research -->|"Verified Findings"| Writer["Writer Agent (gpt-4o)"]
-        Writer -->|"Draft Research Summary"| Editor["Editor Agent (gpt-4o)"]
-        Editor -->|"Critique & Polish"| FinalReport["Final Markdown Research Report"]
+        Research -->|"Verified Evidence & Citations"| Writer["Writer Agent (gpt-4o)"]
+        Writer -->|"Draft Report"| Editor["Editor Agent (gpt-4o)"]
+        Editor -->|"Critique, Polish & Format"| FinalReport["Final Markdown Research Report"]
     end
 ```
 
 ---
 
-## 🔑 Key Skills Acquired
+## 📂 Repository Structure
 
-- **Agentic Workflows & Design Patterns:** Task decomposition, iterative self-reflection, critique generation, and revision loops.
-- **Function Calling & Tool Integration:** Dynamic tool execution (`arXiv`, `Tavily`, `Wikipedia`) with automated error recovery.
-- **Autonomous Multi-Agent Orchestration:** Role specialization (Planner, Researcher, Writer, Editor) with structured inter-agent communication.
-- **Structured LLM Outputs:** Enforcing deterministic JSON schema responses and clean programmatic output handling.
+```
+.
+├── README.md                                    # Main study repository documentation
+├── STUDY_GUIDE.md                               # Comprehensive theoretical & practical study manual
+├── notebooks/                                   # Complete, fully executed laboratory notebooks
+│   ├── C1M2_Reflection_in_a_Research_Agent.ipynb # Module 2: Reflection, critique & revision loops
+│   ├── C1M3_Tool_Use_and_Reflective_Agents.ipynb # Module 3: Tool use, arXiv/Tavily search & HTML export
+│   └── C1M5_Multi_Agent_Workflows.ipynb          # Module 5: End-to-end multi-agent orchestration
+└── src/
+    └── agentic_ai/                              # Clean, modular Python implementation of the agent system
+        ├── __init__.py                          # Package exports
+        ├── agents.py                            # PlannerAgent, ResearchAgent, WriterAgent, EditorAgent
+        └── tools.py                             # ArxivSearchTool, TavilySearchTool, WikipediaSearchTool
+```
+
+---
+
+## 📓 Course Laboratory Notebooks
+
+| Lab Notebook | Module | Focus Area & Key Technical Achievements |
+| :--- | :---: | :--- |
+| [`C1M2_Reflection_in_a_Research_Agent.ipynb`](./notebooks/C1M2_Reflection_in_a_Research_Agent.ipynb) | Module 2 | **Reflection in a Research Agent:** Implemented a three-stage reflective agent pipeline (`generate_draft`, `reflect_on_draft`, `revise_draft`) using iterative LLM self-critique. |
+| [`C1M3_Tool_Use_and_Reflective_Agents.ipynb`](./notebooks/C1M3_Tool_Use_and_Reflective_Agents.ipynb) | Module 3 | **Tool Use & Reflective Agents:** Connected arXiv and Tavily search tools via OpenAI function calling, enforced strict JSON schema reflection, and converted reports to formatted HTML. |
+| [`C1M5_Multi_Agent_Workflows.ipynb`](./notebooks/C1M5_Multi_Agent_Workflows.ipynb) | Module 5 | **Autonomous Multi-Agent Workflows:** Built and coordinated a complete 4-agent team (`Planner`, `Researcher`, `Writer`, `Editor`) generating publication-grade Markdown documents. |
+
+---
+
+## 📚 Study Guide & Lecture Notes
+
+For an in-depth breakdown of concepts, design trade-offs (e.g., JSON Plans vs. Code-as-Action, Linear vs. Hierarchical communication), mathematical formulations, and implementation details, see [`STUDY_GUIDE.md`](./STUDY_GUIDE.md).
